@@ -4,15 +4,29 @@
   </div>
 </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @garden.name %>
-</p>
+<div class="container my-3">
+  <%= link_to '+ Add plant', new_garden_plant_path(@garden) %> |
+  <%= link_to 'Edit', edit_garden_path(@garden) %> |
+  <%= link_to 'Back', gardens_path %>
+</div>
 
-<p>
-  <strong>Banner url:</strong>
-  <%= @garden.banner_url %>
-</p>
 
-<%= link_to 'Edit', edit_garden_path(@garden) %> |
-<%= link_to 'Back', gardens_path %>
+<div class="container">
+  <div class="row">
+    <% @garden.plants.each do |plant| %>
+      <div class="col-4">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= plant.image_url %>)">
+          <%= plant.name %>
+
+          <%= link_to plant_path(plant), method: :delete, data: { confirm: "Are you sure? Like... really?"} do %>
+            <i class="fas fa-trash-alt plant-destroy"></i>
+          <% end %>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
