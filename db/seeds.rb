@@ -31,4 +31,11 @@ Plant.create!(
 )
 
 
+Tag.create!(name: "Indoor")
+Tag.create!(name: "Outdoor")
+Tag.create!(name: "Banana")
+Tag.create!(name: "Mango")
+Tag.create!(name: "Le Wagon")
+
 puts "Total gardens: #{Garden.count}!"
+puts "Total tags: #{Tag.count}!"
