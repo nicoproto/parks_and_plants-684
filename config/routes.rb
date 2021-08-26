@@ -4,7 +4,4 @@ Rails.application.routes.draw do
   end
 
   resources :plants, only: :destroy
-
-  # --- User stories ---
-  # As a user I can delete a plant
 end
